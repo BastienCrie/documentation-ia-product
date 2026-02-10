@@ -3,7 +3,6 @@ title: Controls in segregation of duties
 Description: Documentation related to the configuration of SoD matrix in the studio
 ---
 
-
 # Segregation of Duties Controls
 
 ## Concept
@@ -49,11 +48,11 @@ Whatever the complexity of the SoD rules that should be implemented in the proje
 
 There are three ways to build custom 'SoD' controls.
 
-1) > **Deprecated:** SoD control between two singular permissions. This kind of control returns the identities or accounts in discrepency due to them having access to both permissions at the same time. The use of SoD matrix is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
+1) > **Deprecated:** SoD control between two singular permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to both permissions at the same time. The use of SoD matrix is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
 ![Segregation of duties](./images/sod-control-permissionxpermission.png "SoD permission x permission")
 
 
-2) > **Deprecated:** SoD control between two sets of permissions. This kind of control returns the identities or accounts in discrepency due to them having access to at least one permission in the first set and one in the second set at the same time. The use of SoD matrix along with business activities is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
+2) > **Deprecated:** SoD control between two sets of permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to at least one permission in the first set and one in the second set at the same time. The use of SoD matrix along with business activities is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
 ![Segregation of duties](./images/sod-control-permission_list.png "SoD sets of permission")
 
 3) The third way of doing it would be through a custom rule used for the control and this would provide way more flexibility and complexity in the control.
@@ -128,17 +127,17 @@ If two permissions are selected in the first list and three in the second, six t
 
 ![SoD designer 2](./images/sod-designer_2.png "SoD designer 2")
 
-If toxic pairs should be removed, they can be selected and the "Remove pairs" button pressed to remove them from the list.
-
-In case of wrong risk level configured, the pair should be selected again in both lists on the left along with the new risk level and added again. The other pair will be overwritten by the new one, fixing the risk level.
+If toxic pairs need to be removed, they can be selected and the "Remove pairs" button pressed to remove them from the list.
+​
+In case of an incorrect risk level, the pair should be selected again in both lists on the left along with the new risk level and added again. The previous pair will be overwritten by the new one, correcting the risk level.
 
 ![SoD designer 3](./images/sod-designer_3.png "SoD designer 3")
 
-The matrix can be displayed as a crosstable with the "Crosstable" button to get a better view of it.
+The matrix can be displayed as a cross table with the "Crosstable" button to get a better view of it.
 
 ![SoD designer crosstable](./images/sod-designer_crosstable.png "SoD designer crosstable")
 
-Once created the toxic pairs can be saved in a matrix. A name must be given in the text field in the top right.
+Once created, the toxic pairs can be saved in a matrix. A name must be entered in the text field in the top right.
 
 ![SoD designer 4](./images/sod-designer_4.png "SoD designer 4")
 
@@ -146,23 +145,21 @@ The "Save matrix" button can then be pressed to save everything that has been cr
 
 ### Load a matrix
 
-There are two ways of loading a matrix in the 'SoD - Designer' page, both available via the "Load matrix" button.
-
+There are two ways to load a matrix in the SoD Designer page, both available via the "Load matrix" button.
+​
 ![SoD designer load](./images/sod-designer_load.png "SoD designer load")
 
-It can either be loaded by selecting a matrix that has been created before on the environment. It will then populate the page with the correct informations.
-
-Or by uploading an xlsx file of an exported matrix respecting a precise format. These exported matrix files can be retrieved from the "Export matrix" button. This can be useful in case a matrix has been configured on one environment and should be available onto another.
+A matrix can be loaded either by selecting one that has already been created in the environment, which will then populate the page with the correct information, or by uploading an xlsx file of an exported matrix that follows a specific format. These exported matrix files can be retrieved with the "Export matrix" button, which is useful when a matrix has been configured in one environment and must be available in another.
 
 ### Ingest a matrix
 
-> [!warning] The bw_sod_designer facet must be deployed in the project to ingest the matrix configured in the SoD Designer.
+> [!warning] The `bw_sod_designer` facet must be deployed in the project to ingest the matrix configured in the SoD Designer.
 
-During the configuration of the matrix, the "Load the matrix in the future execution plan" can be checked before saving, to load it in the next execution plans.
+During configuration of the matrix, the "Load the matrix in the future execution plan" option can be checked before saving to load it in future execution plans.
 
-It can also be exported to an xlsx file that can be placed in a defined folder to load it on another environment for example.
+It can also be exported to an xlsx file that can be placed in a defined folder to load it in another environment.
 
 ### Delete a matrix
 
-To delete a matrix, click on "Delete matrix". A matrix must be selected in the dialog that will appear among the existing matrices on the environment and then confirm the deletion.
+To delete a matrix, click "Delete matrix". A matrix must then be selected in the dialog that appears from among the existing matrices in the environment, and the deletion must be confirmed.
 
