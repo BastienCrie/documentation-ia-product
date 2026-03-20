@@ -48,24 +48,24 @@ Whatever the complexity of the SoD rules that should be implemented in the proje
 
 There are three ways to build custom 'SoD' controls.
 
-1) > **Deprecated:** SoD control between two singular permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to both permissions at the same time. The use of SoD matrix is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
-![Segregation of duties](./images/sod-control-permissionxpermission.png "SoD permission x permission")
+> [!warning] Controls configured this way are not considered SoD controls by the product. Therefore they won't be available in the SoD pages.
+
+1) **Deprecated:** SoD control between two singular permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to both permissions at the same time. The use of SoD matrix is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
+    ![Segregation of duties](./images/sod-control-permissionxpermission.png "SoD permission x permission")
 
 
-2) > **Deprecated:** SoD control between two sets of permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to at least one permission in the first set and one in the second set at the same time. The use of SoD matrix along with business activities is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
-![Segregation of duties](./images/sod-control-permission_list.png "SoD sets of permission")
+2) **Deprecated:** SoD control between two sets of permissions. This kind of control returns the identities or accounts in discrepancy due to them having access to at least one permission in the first set and one in the second set at the same time. The use of SoD matrix along with business activities is recommended instead, as those controls are not displayed OOTB in the latest version of the IAP portal.
+    ![Segregation of duties](./images/sod-control-permission_list.png "SoD sets of permission")
 
 3) The third way of doing it would be through a custom rule used for the control and this would provide way more flexibility and complexity in the control.
 
     In the example below, we want to identify the identities having access to the permissions "Utilisateur" and "Valideur3", not having access to the permission "Valideur2" and having access to either the "Administrateur Remedy" or the "Administrateur SAGE" permission.
 
-    As a logical operation `Utilisateur AND Valideur3 AND NOT Valideur2 AND (Administrateur Remedy OR Administrateur SAGE)`
+    As a logical operation : `Utilisateur AND Valideur3 AND NOT Valideur2 AND (Administrateur Remedy OR Administrateur SAGE)`
 
     ![Segregation of duties](./images/sod-rule.png "SoD rule")
 
     That rule can then be used in a control and the identities returned would have SoD defects.
-
-    > [!warning] Controls configured this way are not considered SoD controls by the product. Therefore they won't be available in the SoD pages.
 
 ### SoD matrix
 
@@ -81,11 +81,11 @@ Once created, a matrix is an empty shell and several pairs of toxic permissions 
 
 Permission pairs are built based on two pairs of application/permission, a unique control identifier and the code of a matrix created in a previous step.
 
-The 'Result type' combo makes the control process on the identity or the account level.
+The `Result type` combo makes the control process on the identity or the account level.
 - On the account level, a discepancy will show up if the account has both permissions.
 - On the identity level, a discrepancy will show up if the identity has both permissions through one or more account.
 
-For permission pairs, the 'Model validation' should be set to `Permission type validation`
+For permission pairs, the `Model validation` should be set to `Permission type validation`
 
 ![SoD pair permission 1](./images/sod-pair-permission_1.png "SoD pair permission 1")
 
@@ -151,13 +151,13 @@ There are two ways to load a matrix in the SoD Designer page, both available via
 
 A matrix can be loaded either by selecting one that has already been created in the environment, which will then populate the page with the correct information, or by uploading an xlsx file of an exported matrix that follows a specific format. These exported matrix files can be retrieved with the "Export matrix" button, which is useful when a matrix has been configured in one environment and must be available in another.
 
-### Ingest a matrix
+### Load a matrix
 
-> [!warning] The `bw_sod_designer` facet must be deployed in the project to ingest the matrix configured in the SoD Designer.
+> [!warning] The `bw_sod_designer` facet must be deployed in the project to load the matrix configured with the SoD Designer.
 
-During configuration of the matrix, the "Load the matrix in the future execution plan" option can be checked before saving to load it in future execution plans.
+During the configuration of the matrix, the `Load the matrix in the future execution plan` option can be checked before saving to load it in future execution plans.
 
-It can also be exported to an xlsx file that can be placed in a defined folder to load it in another environment.
+It can also be exported to an xlsx file that can be placed in a defined folder to load it on another environment.
 
 ### Delete a matrix
 
