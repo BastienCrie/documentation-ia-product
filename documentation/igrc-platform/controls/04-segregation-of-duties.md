@@ -71,7 +71,7 @@ There are three ways to build custom 'SoD' controls.
 
 SoD matrices are objects embedded in the product, their purpose is to be able to generate multiple SoD controls automatically during an execution plan. The controls covered by a matrix are the same as the one defined in the part 1 and 2 in [Custom control](#custom-control).
 
-A matrix is identified by a code and a displayname. Some tags like a type and a list of 9 custom fields are also available in its definition.
+A matrix is identified by a code and a displayname. As well as optional tags including a type and a list of 9 custom fields.
 
 ![SoD collector matrix](./images/sod-collector-matrix.png "SoD collector matrix")
 
